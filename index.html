@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8"/>
+  <title>TODO App</title>
+
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      font-family: "Arial", sans-serif;
+      background: #ececec;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      white-space: nowrap;
+      clip-path: inset(100%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+
+    header {
+      height: 60px;
+      background: #512da8;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      box-shadow: 1px 2px 6px 0 #777777;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .banner {
+      text-decoration: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      height: calc(100vh - 140px);
+      padding: 20px 40px;
+      overflow-y: auto;
+    }
+
+    input {
+      width: 200px;
+      height: 40px;
+      padding-left: 20px;
+      /* border-radius: 20px; */
+      border: none;
+    }
+
+    button {
+      background: #512da8;
+      border: 2px solid #512da8;
+      cursor: pointer;
+      box-shadow: 1px 1px 3px 0 #777777;
+      color: #ffffff;
+      padding: 10px 15px;
+      /* border-radius: 20px; */
+      margin-top: 20px;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media screen and (min-width: 451px) {
+      body {
+        font-size: 18px;
+      }
+
+      input {
+        width: 280px;
+      }
+
+      button {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 1px 1px 3px 0 #777777;
+    }
+
+    .todo-item {
+      margin: 20px 0;
+    }
+
+    .add-todo-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .todo-item-name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    li:hover {
+      box-shadow: 1px 0 1px 0 #777777;
+    }
+
+    button:hover {
+      box-shadow: none;
+    }
+
+    footer {
+      height: 40px;
+      background: #2d3850;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 40px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header class="page-header">
+    <h1 class="page-header__title">
+      <a>Vanilla Todo PWA</a>
+    </h1>
+  </header>
+
+  <main id="app"></main>
+
+  <footer class="page-footer">
+    <p class="page-footer__text">Footer text</p>
+  </footer>
+
+  <script async src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  <noscript>
+    This site uses JavaScript. Please enable JavaScript in your browser.
+  </noscript>
+</body>
+
+</html>
