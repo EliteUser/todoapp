@@ -1,4 +1,6 @@
 import AbstractTemplate from '../../abstract/abstract.template';
+import './todo-item.scss';
+import '../../button/button.scss';
 
 export default class TodoItemTemplate extends AbstractTemplate {
   constructor(model) {

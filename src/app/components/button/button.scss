@@ -1,0 +1,27 @@
+.button {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  color: $font-light;
+  background-color: $button;
+  border: none;
+  box-shadow: 2px 2px 4px 0 $shadow-color;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  &:active {
+    opacity: 0.75;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px $focus;
+  }
+}
+
+.button--close {
+
+}

@@ -4,75 +4,113 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
 
-module.exports = (env, argv) => ({
-  entry: {
-    main: './src/main.js'
-  },
+module.exports = (env, argv) => {
+  const isProduction = (argv.mode === 'production');
 
-  devServer: {
-    contentBase: 'build',
-    watchContentBase: true,
-    port: 1000
-  },
+  return {
+    entry: {
+      main: './src/main.js'
+    },
 
-  devtool: argv.mode === 'production' ? false : 'source-map',
+    watch: !isProduction,
 
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    chunkFilename:
-      (argv.mode === 'production') ? 'chunks/[name].[chunkhash].js' : 'chunks/[name].js',
-    filename:
-      (argv.mode === 'production') ? '[name].[chunkhash].js' : '[name].js'
-  },
+    devServer: {
+      contentBase: 'build',
+      watchContentBase: true,
+      port: 1000,
+      hot: true,
+      compress: true
+    },
 
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
+    devtool: isProduction ? false : 'source-map',
+
+    output: {
+      path: path.resolve(__dirname, 'build'),
+      filename: isProduction ? 'js/[name].[hash].js' : '[name].js',
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.(woff|woff2)$/,
+          use: [
+            {
+              loader: 'file-loader?name=./src/fonts/webfonts/[name].[ext]'
+            }
+          ]
+        },
+        {
+          test: /\.(sass|scss)$/,
+          loader: [
+            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: !isProduction
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: !isProduction
+              }
+            },
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: './src/scss/variables.scss',
+              }
+            }
+          ]
         }
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
-      }
-    ]
-  },
+      ]
+    },
 
-  plugins: [
-    new CleanWebpackPlugin('build', {}),
-    new MiniCssExtractPlugin({
-      filename:
-        (argv.mode === 'production') ? '[name].[contenthash].css' : '[name].css'
-    }),
-    new HtmlWebpackPlugin({
-      inject: false,
-      hash: true,
-      template: './index.html',
-      filename: 'index.html'
-    }),
-    new WebpackMd5Hash(),
-    new CopyWebpackPlugin([
-      // {
-      //     from: './src/assets',
-      //     to: './assets'
-      // },
-      // {
-      //     from: 'manifest.json',
-      //     to: 'manifest.json'
-      // }
-    ]),
-    new CompressionPlugin({
-      algorithm: 'gzip'
-    })
-  ]
-});
+    resolve: {
+      extensions: ['.js', '.jsx', '.scss']
+    },
+
+    plugins: [
+
+      new CleanWebpackPlugin('build', {}),
+
+      new MiniCssExtractPlugin({
+        filename: isProduction ? 'css/[name].[hash].css' : '[name].css'
+      }),
+
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: './index.html',
+        filename: 'index.html',
+        minify: {
+          collapseWhitespace: true,
+          minifyCSS: true
+        }
+      }),
+
+      new WebpackMd5Hash(),
+
+      new CopyWebpackPlugin([
+        {
+          from: './src/fonts',
+          to: './fonts'
+        },
+        {
+          from: './src/img',
+          to: './img'
+        },
+      ])
+    ],
+
+    optimization: {
+      minimizer: [
+        new TerserJSPlugin({}),
+        new OptimizeCSSAssetsPlugin({})
+      ]
+    }
+  };
+};

@@ -1,4 +1,5 @@
 import AbstractTemplate from '../../abstract/abstract.template';
+import './todo-list.scss';
 
 export default class TodoListTemplate extends AbstractTemplate {
   constructor() {
@@ -7,7 +8,9 @@ export default class TodoListTemplate extends AbstractTemplate {
 
   get template() {
     return `
-      <ul class="todo-list"></ul>
+      <div class="todo-list">
+        <ul class="todo-list__list"></ul>
+      </div>
     `;
   }
 

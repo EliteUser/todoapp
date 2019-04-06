@@ -1,0 +1,45 @@
+.todo-add {
+
+}
+
+.todo-add__form {
+  display: flex;
+  align-items: center;
+}
+
+.todo-add__wrapper {
+  margin-right: 20px;
+}
+
+.todo-add__label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.todo-add__input {
+  padding: 9px;
+  width: 300px;
+  line-height: 20px;
+  border: 1px solid $border;
+  box-shadow: 2px 2px 4px 0 $shadow-color;
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px $focus;
+  }
+
+
+  &::placeholder {
+    font: inherit;
+    color: $border;
+  }
+}
+
+.todo-add__button {
+  align-self: flex-end;
+}

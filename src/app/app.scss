@@ -1,0 +1,12 @@
+@import "../scss/style";
+@import "./components/page-header/page-header";
+@import "./components/page-footer/page-footer";
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 40px;
+  height: calc(100vh - 160px);
+  overflow-y: auto;
+}

@@ -1,5 +1,5 @@
 import AppTemplate from './app.template';
-import TodoModule from './todo/todo.module';
+import TodoModule from './components/todo/todo.module';
 
 export default class AppComponent {
   constructor() {

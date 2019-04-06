@@ -1,4 +1,4 @@
-import { renderHTML } from '../../utils';
+import { renderHTML } from '../../../utils';
 
 export default class AbstractTemplate {
   constructor() {

@@ -1,5 +1,5 @@
-import TodoItemModel from '../todo-item/todo-item.model';
-import TodoItemTemplate from '../todo-item/todo-item.template';
+import TodoItemModel from './todo-item.model';
+import TodoItemTemplate from './todo-item.template';
 
 export default class TodoItemComponent {
   constructor(id, name) {

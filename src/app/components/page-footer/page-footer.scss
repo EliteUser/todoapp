@@ -1,0 +1,30 @@
+.page-footer {
+  height: 80px;
+  padding: 20px 40px;
+  background: $main-color;
+  color: $font-light;
+  display: flex;
+  align-items: center;
+}
+
+.page-footer__text {
+  margin: 0;
+}
+
+.page-footer__link {
+  color: $font-light;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    opacity: 0.75;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px $focus;
+  }
+}
