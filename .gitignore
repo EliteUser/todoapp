@@ -70,3 +70,5 @@ firebase.json
 
 # dotenv environment variables file
 .env
+
+.idea
