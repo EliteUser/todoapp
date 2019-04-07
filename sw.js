@@ -7,7 +7,7 @@ self.addEventListener('install', function (event) {
       caches.open(staticAssetsCacheName).then(function (cache) {
         cache.addAll([
             '/',
-            "/css/main.9290934144f2d6b307eb.css","/fonts/roboto.woff","/fonts/roboto.woff2","/fonts/robotobold.woff","/fonts/robotobold.woff2","/img/logo-github.svg","/index.html","/js/main.9290934144f2d6b307eb.js"
+            "/css/main.b9e4384334d9b7674c56.css","/fonts/roboto.woff","/fonts/roboto.woff2","/fonts/robotobold.woff","/fonts/robotobold.woff2","/img/logo-github.svg","/index.html","/js/main.b9e4384334d9b7674c56.js"
         ]
         );
       }).catch((error) => {
