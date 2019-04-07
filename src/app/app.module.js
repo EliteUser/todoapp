@@ -20,7 +20,7 @@ class App {
     }
 
     navigator.serviceWorker
-      .register('./js/sw.js')
+      .register('./sw.js')
       .then(() => {
         window.console.log('sw registered successfully!');
       })
