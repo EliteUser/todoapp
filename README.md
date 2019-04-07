@@ -1,2 +1,2 @@
-# Vanilla Todos PWA
-A sample Single Page Application using modern vanilla JavaScript, Webpack and Progressive Web Application techniques
+# Vanilla Todo PWA
+A simple TODO SPA with modern vanilla JavaScript and Webpack
