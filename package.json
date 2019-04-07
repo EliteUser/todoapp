@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint \"src/**/*.js\"",
     "stylelint": "stylelint \"src/**/*.scss\" --syntax scss",
-    "build-prod": "webpack --mode production && node build-sw",
+    "build-prod": "webpack --mode production && node src/build-sw",
     "build-dev": "webpack --mode development",
     "start": "webpack-dev-server --mode=development --hot"
   },

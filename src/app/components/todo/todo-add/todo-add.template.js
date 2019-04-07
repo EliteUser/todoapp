@@ -1,4 +1,5 @@
 import AbstractTemplate from '../../abstract/abstract.template';
+import '../../button/button.scss';
 import './todo-add.scss';
 
 export default class TodoAddTemplate extends AbstractTemplate {
@@ -10,7 +11,7 @@ export default class TodoAddTemplate extends AbstractTemplate {
             <label class="todo-add__label" for="todo-add">Type your task here</label>
             <input class="todo-add__input" type="text" id="todo-add" placeholder="Buy food">
           </div>
-          <button class="todo-add__button button button--add" type="submit">Add Todo</button>
+          <button class="button todo-add__button " type="submit">Add Todo</button>
         </form>
       </div>
     `;

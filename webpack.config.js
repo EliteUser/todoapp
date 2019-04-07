@@ -36,11 +36,23 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.(woff|woff2)$/,
-          use: [
-            {
-              loader: 'file-loader?name=./src/fonts/webfonts/[name].[ext]'
-            }
-          ]
+          use: {
+            loader: 'file-loader',
+            options: {
+              publicPath: '../',
+              name: './fonts/[name].[ext]',
+            },
+          }
+        },
+        {
+          test: /\.(png|jpg|svg|gif)$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              publicPath: '../',
+              name: './img/[name].[ext]',
+            },
+          }
         },
         {
           test: /\.(sass|scss)$/,
@@ -84,7 +96,7 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         inject: true,
         hash: true,
-        template: './index.html',
+        template: './src/index.html',
         filename: 'index.html',
         minify: {
           collapseWhitespace: true,

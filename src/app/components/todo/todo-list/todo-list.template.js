@@ -15,10 +15,10 @@ export default class TodoListTemplate extends AbstractTemplate {
   }
 
   addTodo(todoItem) {
-    this.element.appendChild(todoItem.render());
+    this.element.querySelector('.todo-list__list').appendChild(todoItem.render());
   }
 
   removeTodo(todoItem) {
-    this.element.removeChild(todoItem.template.element);
+    this.element.querySelector('.todo-list__list').removeChild(todoItem.template.element);
   }
 }

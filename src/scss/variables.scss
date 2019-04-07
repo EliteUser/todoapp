@@ -1,23 +1,21 @@
 /* Screen sizes */
 
 $screen-desktop: 1200px;
-$screen-medium: 768px;
+$screen-tablet: 768px;
 $screen-mobile: 320px;
 
 /* Colors */
 
-$font: #3d3d3d;
-$font-light: #ffffff;
+$background-main-color: #101117;
+$background-color: #14151d;
 
-$focus: #536dfe;
+$font: #cfd0d6;
+$font-light: #6b6f88;
+$font-dark: $background-color;
 
-$main-color: #512da8;
+$main-color: #4b92e3;
 
-$border: #cccccc;
+$focus: $main-color;
 $button: $main-color;
-$button-reset: #f44336;
-$button-disabled: #90a4ae;
 
-$background-color: #ececec;
-
-$shadow-color: #bbbbbb;
+$shadow-color: rgba(0, 0, 0, .3);

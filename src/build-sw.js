@@ -1,7 +1,7 @@
 const glob = require('glob');
 const fs = require('fs');
 
-const dest = 'build/sw.js';
+const dest = 'build/js/sw.js';
 const staticAssetsCacheName = 'todo-assets-v6';
 const dynamicCacheName = 'todo-dynamic-v6';
 

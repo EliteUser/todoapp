@@ -1,7 +1,10 @@
 .todo-list {
   margin-bottom: 20px;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0 calc(calc(100vw - 320px) / 4);
+}
+
+.todo-list__list {
+  margin: 0;
+  padding: 0;
+  counter-reset: todo-item;
 }

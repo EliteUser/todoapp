@@ -1,10 +1,15 @@
 .page-footer {
   height: 80px;
-  padding: 20px 40px;
-  background: $main-color;
-  color: $font-light;
+  padding: 20px;
   display: flex;
   align-items: center;
+  color: $font;
+  background-color: $background-color;
+  box-shadow: 0 4px 20px 8px $shadow-color;
+
+  @media (min-width: $screen-tablet) {
+    padding: 20px 40px;
+  }
 }
 
 .page-footer__text {
@@ -12,8 +17,12 @@
 }
 
 .page-footer__link {
-  color: $font-light;
+  position: relative;
+  display: block;
+  padding-right: 30px;
+  color: $font;
   text-decoration: underline;
+  transition: opacity 0.15s;
 
   &:hover {
     text-decoration: none;
@@ -24,7 +33,20 @@
   }
 
   &:focus {
-    outline: none;
-    box-shadow: 0 0 0 1px $focus;
+    outline-offset: 2px;
+    outline: 1px solid $focus;
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/logo-github.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
   }
 }

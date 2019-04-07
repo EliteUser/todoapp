@@ -1,15 +1,18 @@
 .button {
-  padding: 10px 15px;
+  padding: 9px 15px;
   display: flex;
   justify-content: center;
-  color: $font-light;
-  background-color: $button;
-  border: none;
-  box-shadow: 2px 2px 4px 0 $shadow-color;
+  color: $font;
+  background-color: $background-color;
   cursor: pointer;
+  border: 1px solid $main-color;
+  box-shadow: 0 4px 20px 8px $shadow-color;
+  transition: background-color 0.15s;
 
-  &:hover {
-    box-shadow: none;
+  &:hover,
+  &:focus {
+    color: $font-dark;
+    background-color: $main-color;
   }
 
   &:active {
