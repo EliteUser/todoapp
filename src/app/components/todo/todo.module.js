@@ -16,6 +16,27 @@ export default class TodoModule {
 
       this.listComponent.addTodo(todoItem);
       this.render();
+
+      const URL = 'http://127.0.0.1:8888/entity';
+      const REQUEST_SETTINGS = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({id, name}),
+        mode: 'no-cors'
+      };
+      fetch(URL, REQUEST_SETTINGS)
+        .then((res) => {
+          console.log(res);
+          return res.json();
+        })
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
   }
 
