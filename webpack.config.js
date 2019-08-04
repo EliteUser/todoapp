@@ -22,7 +22,8 @@ module.exports = (env, argv) => {
       watchContentBase: true,
       port: 1000,
       hot: true,
-      compress: true
+      compress: true,
+      open: true
     },
 
     devtool: isProduction ? false : 'source-map',
